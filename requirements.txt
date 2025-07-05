@@ -1,0 +1,11 @@
+tensorflow
+numpy
+pandas
+matplotlib
+mne
+keras
+scikit-learn
+h5py
+fileinput
+scipy
+seaborn
