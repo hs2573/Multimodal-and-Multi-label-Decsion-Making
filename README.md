@@ -122,7 +122,7 @@ Make sure db_n.csv contains the dynamic range configuration (vmin, vmax) of the 
 
 # Generate Spectrograms:
 
-Use 1_batch_generate_spectrograms.py
+Use scripts/2_batch_generate_spectrograms.py
 
 
 
@@ -138,8 +138,8 @@ Outputs: results/spectrograms_example/img_channel_10s/log/ (used for training) a
 
 # Train First-Level VGG16 Models:
 
-Use 3_train_vgg_stage.py
-Use 4_train_vgg_disorder.py
+Use scripts/3_train_vgg_stage.py
+Use scripts/4_train_vgg_disorder.py
 
 
 
@@ -179,7 +179,7 @@ Labels: results/probability_vector/{EEG,ECG,EMG}_{train,val,test}_label_{stage,d
 
 # Concatenate Modality Probability Vectors:
 
-Use 5_connecting_probability_vectors.py
+Use scripts/5_connecting_probability_vectors.py
 
 
 
@@ -209,7 +209,7 @@ Note: Ensure all data is aligned.
 
 # Fully Connect Stage and Disorder Vectors:
 
-Use 6_fully_connect_probability_vectors.py
+Use scripts/6_fully_connect_probability_vectors.py
 
 
 
@@ -237,7 +237,7 @@ Note: Ensure all data is aligned, especially the sleep disorder and sleep stage 
 
 # Train Final Shallow Neural Network:
 
-Use 7_SNN_final_decision_maker.py
+Use scripts/7_SNN_final_decision_maker.py
 
 
 
