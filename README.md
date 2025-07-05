@@ -109,7 +109,7 @@ Follow these steps to run the pipeline:
 
 
 Download the PhysioNet CAP Sleep Database from https://physionet.org/content/capslpdb/1.0.0/.
-
+EDF files: Polysomnography recordings (108 files, e.g., brux1.edf, brux2.edf, ..., sdb4.edf) containing EEG, ECG, EMG, and other signals.
 
 
 Place EDF files in data/ and TXT files in txt_data/.
@@ -263,6 +263,99 @@ Models: results/second_level_model/best_model_{stage,disorder}.h5
 
 Evaluation: Accuracy, confusion matrices, and classification reports for train and test sets.
 
-Expected Results
+Note: For sleep stage classification, a pre-trained shallow neural network (PT-Shallow NN) is used to achieve optimal performance, while the sleep disorder model is trained from scratch.
 
-Based on Cheng, Y.-H.; Lech, M.; Wilkinson, R.H. Simultaneous Sleep Stage and Sleep Disorder Detection from Multimodal Sensors Using Deep Learning. Sensors 2023, 23, 3468:
+# Validation Data
+
+
+
+
+
+The pipeline supports validation data ({modality}_val_data_{stage,disorder}.csv), but it is not used in the final SNN training. To include validation data, modify fully_connect_probability_vectors.py to generate val_data_combined.csv and update SNN_final_decision_maker.py to include validation during training.
+
+
+# Expected Results
+
+Based on Cheng, Y.-H.; Lech, M.; Wilkinson, R.H. Simultaneous Sleep Stage and Sleep Disorder Detection from Multimodal Sensors Using Deep Learning. Sensors 2023, 23, 3468 (Table 6):
+
+
+
+
+
+Sleep Stage Classification:
+
+
+
+
+
+Accuracy: 94.34% using a pre-trained shallow neural network (PT-Shallow NN).
+
+
+
+Improved by approximately 4% compared to the multimodal-only approach (MML-DMS1).
+
+
+
+The trained-from-scratch shallow NN achieved only 84.89% accuracy, necessitating pre-training.
+
+
+
+Sleep Disorder Classification:
+
+
+
+
+
+Accuracy: 99.09% using a shallow neural network trained from scratch.
+
+
+
+Improved by approximately 1% compared to the multimodal-only approach (MML-DMS1).
+
+
+
+Performance Insights:
+
+
+
+
+
+The combined multimodal and multilabel approach (MML-DMS2) is more robust to data imbalances across categories compared to single-modality (Experiment 1) and multimodal-only (Experiment 2) approaches.
+
+
+
+Sleep stage classification is more challenging than sleep disorder classification, resulting in slightly lower accuracy.
+
+
+
+Confusion matrices (Figure 7) show high classification accuracy for individual categories compared to single-modality results (Figure 5).
+
+
+
+F1 scores are improved compared to MML-DMS1, indicating better handling of imbalanced data.
+
+
+
+Outputs:
+
+
+
+
+
+Confusion matrices and classification reports for stage (R, S1, S2, S3, S4, W) and disorder (B, I, N, Na, Nf, P, Rb, S) are printed to the console.
+
+
+
+Best models saved as results/second_level_model/best_model_{stage,disorder}.h5.
+
+# Citation
+
+If you use this code, please cite:
+
+
+
+Cheng, Y.-H.; Lech, M.; Wilkinson, R.H. Simultaneous Sleep Stage and Sleep Disorder Detection from Multimodal Sensors Using Deep Learning. Sensors 2023, 23, 3468. https://doi.org/10.3390/s23073468
+
+# Contact
+
+For issues or questions, please open a GitHub issue or contact the repository owner.
