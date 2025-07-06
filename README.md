@@ -139,7 +139,7 @@ Processes EDF files to generate 10-second and 30-second spectrograms.
 
 Outputs: img_channel_10s/(channel name)/(log or linear)/ (sleep stage) and `img_channel_30s/. After this step finished, you should separate the data into folds, train, val, and test.
 
-Then you need to move the spectrogram into folder .\results\spectrograms_example\img_channel_10s\log\(stage or disorder)\(modality)\(train, val, or test)\(classes)
+Then you need to move the spectrogram into folder .\results\spectrograms_example\img_channel_10s\log\ (stage or disorder)\ (modality)\ (train, val, or test)\ (classes)
 
 
 # Train First-Level VGG16 Models:
