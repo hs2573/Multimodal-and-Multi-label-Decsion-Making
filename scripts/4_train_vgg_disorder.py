@@ -16,28 +16,28 @@ data_location = ".\results\spectrograms_example\img_channel_10s\log\disorder"
 def train_CNN_disorder(data_location,ch_typ,img_width=32, img_height=32):
     
     img_width, img_height = img_width, img_height
-    train_data_dir = "{}\\{}\\disorder\\train".format(data_location,ch_typ)
-    validation_data_dir = "{}\\{}\\disorder\\val".format(data_location,ch_typ)
-    test_data_dir = "{}\\{}\\disorder\\test".format(data_location,ch_typ)
+    train_data_dir = "{}\\{}\\train".format(data_location,ch_typ)
+    validation_data_dir = "{}\\{}\\val".format(data_location,ch_typ)
+    test_data_dir = "{}\\{}\\test".format(data_location,ch_typ)
     
     """Calculate number of samples per class for a modality."""
-    a = len(os.listdir("{}\\{}\\disorder\\train\\B".format(data_location,ch_typ)))
-    b = len(os.listdir("{}\\{}\\disorder\\train\\I".format(data_location,ch_typ)))
-    c = len(os.listdir("{}\\{}\\disorder\\train\\N".format(data_location,ch_typ)))
-    d = len(os.listdir("{}\\{}\\disorder\\train\\Na".format(data_location,ch_typ)))
-    e = len(os.listdir("{}\\{}\\disorder\\train\\Nf".format(data_location,ch_typ)))
-    f = len(os.listdir("{}\\{}\\disorder\\train\\P".format(data_location,ch_typ)))
-    g = len(os.listdir("{}\\{}\\disorder\\train\\Rb".format(data_location,ch_typ)))
-    h = len(os.listdir("{}\\{}\\disorder\\train\\S".format(data_location,ch_typ)))
+    a = len(os.listdir("{}\\{}\\train\\B".format(data_location,ch_typ)))
+    b = len(os.listdir("{}\\{}\\train\\I".format(data_location,ch_typ)))
+    c = len(os.listdir("{}\\{}\\train\\N".format(data_location,ch_typ)))
+    d = len(os.listdir("{}\\{}\\train\\Na".format(data_location,ch_typ)))
+    e = len(os.listdir("{}\\{}\\train\\Nf".format(data_location,ch_typ)))
+    f = len(os.listdir("{}\\{}\\train\\P".format(data_location,ch_typ)))
+    g = len(os.listdir("{}\\{}\\train\\Rb".format(data_location,ch_typ)))
+    h = len(os.listdir("{}\\{}\\train\\S".format(data_location,ch_typ)))
 
-    a1 = len(os.listdir("{}\\{}\\disorder\\val\\B".format(data_location,ch_typ)))
-    b1 = len(os.listdir("{}\\{}\\disorder\\val\\I".format(data_location,ch_typ)))
-    c1 = len(os.listdir("{}\\{}\\disorder\\val\\N".format(data_location,ch_typ)))
-    d1 = len(os.listdir("{}\\{}\\disorder\\val\\Na".format(data_location,ch_typ)))
-    e1 = len(os.listdir("{}\\{}\\disorder\\val\\Nf".format(data_location,ch_typ)))
-    f1 = len(os.listdir("{}\\{}\\disorder\\val\\P".format(data_location,ch_typ)))
-    g1 = len(os.listdir("{}\\{}\\disorder\\val\\Rb".format(data_location,ch_typ)))
-    h1 = len(os.listdir("{}\\{}\\disorder\\val\\S".format(data_location,ch_typ)))
+    a1 = len(os.listdir("{}\\{}\\val\\B".format(data_location,ch_typ)))
+    b1 = len(os.listdir("{}\\{}\\val\\I".format(data_location,ch_typ)))
+    c1 = len(os.listdir("{}\\{}\\val\\N".format(data_location,ch_typ)))
+    d1 = len(os.listdir("{}\\{}\\val\\Na".format(data_location,ch_typ)))
+    e1 = len(os.listdir("{}\\{}\\val\\Nf".format(data_location,ch_typ)))
+    f1 = len(os.listdir("{}\\{}\\val\\P".format(data_location,ch_typ)))
+    g1 = len(os.listdir("{}\\{}\\val\\Rb".format(data_location,ch_typ)))
+    h1 = len(os.listdir("{}\\{}\\val\\S".format(data_location,ch_typ)))
 
 
 
