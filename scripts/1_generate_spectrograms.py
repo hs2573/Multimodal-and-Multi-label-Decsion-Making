@@ -19,7 +19,7 @@ from utils import generate_spectrogram
 # Configuration
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
-TXT_DIR = os.path.join(BASE_DIR, "txt_data")
+TXT_DIR = os.path.join(BASE_DIR, "text_data")
 SAVE_DIR = os.path.join(BASE_DIR, "img_channel")
 FILE_NAME = "n1"  # Example EDF/txt file (without extension)
 NFFT = 1024
