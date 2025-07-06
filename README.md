@@ -1,6 +1,14 @@
 # Multimodal-and-Multi-label-Decsion-Making
 This repository implements a multi-modal learning framework for sleep stage (R, S1, S2, S3, S4, W) and sleep disorder (B, I, N, Na, Nf, P, Rb, S) classification using EEG, ECG, and EMG signals from the PhysioNet CAP Sleep Database (https://physionet.org/content/capslpdb/1.0.0/), as described in Cheng, Y.-H.; Lech, M.; Wilkinson, R.H. Simultaneous Sleep Stage and Sleep Disorder Detection from Multimodal Sensors Using Deep Learning. Sensors 2023, 23, 3468. https://doi.org/10.3390/s23073468. The pipeline processes EDF files to generate spectrograms, trains VGG16 models for each modality, concatenates probability vectors, and uses shallow neural networks (SNN) for final classification.
 
+## Repository Structure
+- `scripts/`: Python scripts for data preprocessing, model training, and decision-making.
+- `results/probability_vector/`: Probability vectors (e.g., `train_data_stage.csv`).
+- `results/spectrograms_example/`: Example spectrograms (regenerate using the pipeline to avoid sharing sensitive data).
+- `db_n.csv`: Sample dataset for testing.
+- `requirements.txt`: Dependencies for running the pipeline.
+- `.gitignore`: Excludes sensitive data (`data/`, `txt_data/`, `*.h5`).
+
 # Overview
 
 The framework follows a two-level approach:
@@ -122,18 +130,16 @@ Make sure db_n.csv contains the dynamic range configuration (vmin, vmax) of the 
 
 # Generate Spectrograms:
 
+Before start generate spectrograms you need to setup each channel's db range and create the "db_n.csv" file, their is already has an example but the values in that files only example.
+If you do not want to setup spectrogram db range please delete the code "vmin=vmin," and "vmax=vmax" in line 151, 152, 176, and 177 in "2_batch_generate_spectrograms.py"
+
 Use scripts/2_batch_generate_spectrograms.py
-
-
-
-
 
 Processes EDF files to generate 10-second and 30-second spectrograms.
 
+Outputs: img_channel_10s/(channel name)/(log or linear)/ (sleep stage) and `img_channel_30s/. After this step finished, you should separate the data into folds, train, val, and test.
 
-
-Outputs: results/spectrograms_example/img_channel_10s/log/ (used for training) and `img_channel_30s/. After this step finished, you should separate the data into folds, train, val, and test.
-
+Then you need to move the spectrogram into folder .\results\spectrograms_example\img_channel_10s\log\(stage or disorder)\(modality)\(train, val, or test)\(classes)
 
 
 # Train First-Level VGG16 Models:
