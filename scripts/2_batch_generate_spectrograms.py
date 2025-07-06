@@ -148,8 +148,8 @@ def main():
                     Fs=FS,
                     NFFT=NFFT,
                     noverlap=NOVERLAP/1024,
-                    #vmin=vmin,
-                    #vmax=vmax
+                    vmin=vmin,
+                    vmax=vmax
                 )
             
             # 10-second spectrograms
@@ -173,8 +173,8 @@ def main():
                         Fs=FS,
                         NFFT=NFFT,
                         noverlap=NOVERLAP/1024,
-                        #vmin=vmin,
-                        #vmax=vmax
+                        vmin=vmin,
+                        vmax=vmax
                     )
         
         del data, df
