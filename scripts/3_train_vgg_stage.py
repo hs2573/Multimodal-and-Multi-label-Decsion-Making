@@ -16,24 +16,24 @@ data_location = ".\results\spectrograms_example\img_channel_10s\log\stage"
 def train_CNN_stage(data_location,ch_typ,img_width=32, img_height=32):
     
     img_width, img_height = img_width, img_height
-    train_data_dir = "{}\\{}\\stage\\train".format(data_location,ch_typ)
-    validation_data_dir = "{}\\{}\\stage\\val".format(data_location,ch_typ)
-    test_data_dir = "{}\\{}\\stage\\test".format(data_location,ch_typ)
+    train_data_dir = "{}\\{}\\train".format(data_location,ch_typ)
+    validation_data_dir = "{}\\{}\\val".format(data_location,ch_typ)
+    test_data_dir = "{}\\{}\\test".format(data_location,ch_typ)
     
     """Calculate number of samples per class for a modality."""
-    a = len(os.listdir("{}\\{}\\stage\\train\\W".format(data_location,ch_typ)))
-    b = len(os.listdir("{}\\{}\\stage\\train\\S1".format(data_location,ch_typ)))
-    c = len(os.listdir("{}\\{}\\stage\\train\\S2".format(data_location,ch_typ)))
-    d = len(os.listdir("{}\\{}\\stage\\train\\S3".format(data_location,ch_typ)))
-    e = len(os.listdir("{}\\{}\\stage\\train\\S4".format(data_location,ch_typ)))
-    f = len(os.listdir("{}\\{}\\stage\\train\\R".format(data_location,ch_typ)))
+    a = len(os.listdir("{}\\{}\\train\\W".format(data_location,ch_typ)))
+    b = len(os.listdir("{}\\{}\\train\\S1".format(data_location,ch_typ)))
+    c = len(os.listdir("{}\\{}\\train\\S2".format(data_location,ch_typ)))
+    d = len(os.listdir("{}\\{}\\train\\S3".format(data_location,ch_typ)))
+    e = len(os.listdir("{}\\{}\\train\\S4".format(data_location,ch_typ)))
+    f = len(os.listdir("{}\\{}\\train\\R".format(data_location,ch_typ)))
 
-    a1 = len(os.listdir("{}\\{}\\stage\\val\\W".format(data_location,ch_typ)))
-    b1 = len(os.listdir("{}\\{}\\stage\\val\\S1".format(data_location,ch_typ)))
-    c1 = len(os.listdir("{}\\{}\\stage\\val\\S2".format(data_location,ch_typ)))
-    d1 = len(os.listdir("{}\\{}\\stage\\val\\S3".format(data_location,ch_typ)))
-    e1 = len(os.listdir("{}\\{}\\stage\\val\\S4".format(data_location,ch_typ)))
-    f1 = len(os.listdir("{}\\{}\\stage\\val\\R".format(data_location,ch_typ)))
+    a1 = len(os.listdir("{}\\{}\\val\\W".format(data_location,ch_typ)))
+    b1 = len(os.listdir("{}\\{}\\val\\S1".format(data_location,ch_typ)))
+    c1 = len(os.listdir("{}\\{}\\val\\S2".format(data_location,ch_typ)))
+    d1 = len(os.listdir("{}\\{}\\val\\S3".format(data_location,ch_typ)))
+    e1 = len(os.listdir("{}\\{}\\val\\S4".format(data_location,ch_typ)))
+    f1 = len(os.listdir("{}\\{}\\val\\R".format(data_location,ch_typ)))
 
 
 
@@ -185,30 +185,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
