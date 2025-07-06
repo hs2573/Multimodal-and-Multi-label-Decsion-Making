@@ -17,15 +17,15 @@ import fileinput
 from utils import generate_spectrogram
 
 # Configuration
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR =   'C:\\Users\Rex\Desktop\MML_DMS'                       #os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
-TXT_DIR = os.path.join(BASE_DIR, "txt_data")
+TXT_DIR = os.path.join(BASE_DIR, "text_data")
 SAVE_DIR_30S = os.path.join(BASE_DIR, "img_channel_30s")
 SAVE_DIR_10S = os.path.join(BASE_DIR, "img_channel_10s")
-FILE_NUMBERS = range(11, 17)  # Process n11 to n16
+FILE_NUMBERS = range(2, 3)  # Process n11 to n16
 NFFT = 1024
-FS = 50  # Sampling frequency (Hz) for EKG channels
-NOVERLAP = 990  # Fixed overlap for STFT
+FS = 512  # Sampling frequency (Hz) for EKG channels
+NOVERLAP = int(NFFT * 0.9)  # 90% overlap
 
 def clean_txt_file(txt_file, txt_dir):
     """
@@ -126,7 +126,7 @@ def main():
         data = mne.io.read_raw_edf(os.path.join(DATA_DIR, edf_file), preload=True)
         info = data.info
         channels = [normalize_channel_name(ch) for ch in data.ch_names]
-        picks = mne.pick_types(info, eeg=True, eeg=False, eog=True, ecg=True, exclude='bads')
+        picks = mne.pick_types(info, eeg=True, eog=True, ecg=True, exclude='bads')
         
         # Process each segment
         for i in range(len(df)):
@@ -148,8 +148,8 @@ def main():
                     Fs=FS,
                     NFFT=NFFT,
                     noverlap=NOVERLAP/1024,
-                    vmin=vmin,
-                    vmin=vmax
+                    #vmin=vmin,
+                    #vmax=vmax
                 )
             
             # 10-second spectrograms
@@ -173,8 +173,8 @@ def main():
                         Fs=FS,
                         NFFT=NFFT,
                         noverlap=NOVERLAP/1024,
-                        vmin=vmin,
-                        vmax=vmax
+                        #vmin=vmin,
+                        #vmax=vmax
                     )
         
         del data, df
